@@ -1,3 +1,4 @@
+# I can also make this in react or next it was specified as vanilla so i did it :)
 # Microburbs Property Explorer
 
 A **Flask-based web application** that allows users to explore Australian residential properties by suburb. The app fetches property data from the Microburbs API, cleans it, and displays it in a **beautiful interactive interface** with filters and tiles.
