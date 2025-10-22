@@ -59,3 +59,6 @@ pip install -r requirements.txt
 
 ### 4. Run the app
 python app.py
+
+### 5. Goto
+localhost:3000/home
