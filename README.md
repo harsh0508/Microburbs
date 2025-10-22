@@ -12,17 +12,15 @@ A **Flask-based web application** that allows users to explore Australian reside
   - Bedrooms
   - Bathrooms
 - Responsive **tiles view** for property listings.
-- **Animated hero image** that shrinks when data loads.
-- **Contact me** link with `mailto:` functionality.
 - Smooth and modern UI for property exploration.
 
 ---
 
 ## Screenshots
 
-![Home Page](screenshots/homepage.png)  
-![Filters](screenshots/filters.png)  
-![Property Tiles](screenshots/tiles.png)
+![Home Page](backend/screenshots/homepage.png)  
+![Filters](backend/screenshots/filters.png)  
+![Property Tiles](backend/screenshots/tiles.png)
 
 ---
 
