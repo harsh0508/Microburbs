@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h3>${property.address?.street || "Property"}</h3>
                 <p><i>${property.area_name || ""}</i></p>
                 <p class="price">${property.price ? "$" + property.price.toLocaleString() : "Price N/A"}</p>
+                <a class="map-link" href="https://www.google.com/maps?q=${property.coordinates.latitude},${property.coordinates.longitude}" target="_blank">View on Map</a>
                 <p>Bedrooms: ${property.attributes?.bedrooms || 'N/A'}, Bathrooms: ${property.attributes?.bathrooms || 'N/A'}, Garage: ${property.attributes?.garage_spaces || 'N/A'}</p>
                 <p>Land Size: ${property.attributes?.land_size || 'N/A'}, Building Size: ${property.attributes?.building_size || 'N/A'}</p>
                 <p style="white-space: pre-line;">${property.attributes?.description || 'No description'}</p>
@@ -80,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     filter.style.display = 'flex'
                     hero.classList.remove('unshrink')
                     hero.classList.add('shrink')
-
+                    console.log(data.results)
                     properties = data.results || []
                     applyFilters()
                 })
