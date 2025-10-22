@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <title>Microburbs</title>
+    </head>
+    <body>
+
+        <header>
+            <h1>Microburbs</h1>
+            <a href="mailto:harsh.jvm@gmail.com">Contact me</a>
+        </header>
+
+    
+        <div class="hero" id="hero">
+            <div class="search-box">
+                <input id="suburb-input" type="text" placeholder="Type suburb..." />
+                <div id="loading-spinner" style="display:none;">
+                    <div class="spinner"></div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div id="filter" class="filters" style="display: none;">
+            <label>
+                Min Price: 
+                <input type="number" id="min-price" placeholder="0">
+            </label>
+            <label>
+                Max Price: 
+                <input type="number" id="max-price" placeholder="Any">
+            </label>
+            <label>
+                Bedrooms: 
+                <select id="bedrooms">
+                    <option value="">Any</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                    <option value="4">4+</option>
+                    <option value="5">5+</option>
+                </select>
+            </label>
+            <label>
+                Bathrooms: 
+                <select id="bathrooms">
+                    <option value="">Any</option>
+                    <option value="1">1+</option>
+                    <option value="2">2+</option>
+                    <option value="3">3+</option>
+                </select>
+            </label>
+        </div>
+
+        <div id="tiles-container"></div>
+
+
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </body>
+</html>
