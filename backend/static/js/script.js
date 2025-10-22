@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let properties = []; 
 
     const renderTiles = (data) => {
-        container.innerHTML = "";
+        container.innerHTML = ""
         if (!data || data.length === 0) {
-            container.innerHTML = "<p>No properties found.</p>";
+            container.innerHTML = "<p>No properties found.</p>"
             return;
         }
 
@@ -37,10 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const applyFilters = () => {
         let filtered = [...properties];
-        const minPrice = parseFloat(minPriceInput.value) || 0;
-        const maxPrice = parseFloat(maxPriceInput.value) || Infinity;
-        const bedrooms = parseInt(bedroomsInput.value) || 0;
-        const bathrooms = parseInt(bathroomsInput.value) || 0;
+        const minPrice = parseFloat(minPriceInput.value) || 0
+        const maxPrice = parseFloat(maxPriceInput.value) || Infinity
+        const bedrooms = parseInt(bedroomsInput.value) || 0
+        const bathrooms = parseInt(bathroomsInput.value) || 0
 
         filtered = filtered.filter(p => 
             (p.price >= minPrice && p.price <= maxPrice) &&
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     [minPriceInput, maxPriceInput, bedroomsInput, bathroomsInput].forEach(el => {
-        el.addEventListener('change', applyFilters);
+        el.addEventListener('change', applyFilters)
     });
 
     
@@ -61,10 +61,10 @@ document.addEventListener('DOMContentLoaded', () => {
         clearTimeout(debounceTimer);
 
         debounceTimer = setTimeout(() => {
-            const suburb = input.value.trim();
+            const suburb = input.value.trim()
             if(suburb == ""){
-                document.getElementById('hero').classList.remove('shrink')
-                document.getElementById('hero').classList.add('unshrink')
+                hero.classList.remove('shrink')
+                hero.classList.add('unshrink')
                 filter.style.display = 'none'
             }
             if (!suburb) return;
@@ -75,17 +75,18 @@ document.addEventListener('DOMContentLoaded', () => {
             fetch(`/getHomeData?suburb=${encodeURIComponent(suburb)}`)
                 .then(res => res.json())
                 .then(data => {
-                    spinner.style.display = "none";
+                    spinner.style.display = "none"
 
                     filter.style.display = 'flex'
-                    document.getElementById('hero').classList.add('shrink');
+                    hero.classList.remove('unshrink')
+                    hero.classList.add('shrink')
 
-                    properties = data.results || [];
-                    applyFilters();
+                    properties = data.results || []
+                    applyFilters()
                 })
                 .catch(err => {
-                    spinner.style.display = "none";
-                    container.innerHTML = "<p>Error loading properties.</p>";
+                    spinner.style.display = "none"
+                    container.innerHTML = "<p>Error loading properties.</p>"
                     console.error(err);
                 });
         }, 2000); // 2s debounce
